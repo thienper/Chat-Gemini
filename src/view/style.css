@@ -1,0 +1,108 @@
+/* file: src/view/style.css */
+
+/* Làm mịn font chữ và Dark Mode cho Body */
+body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    color: #4CAF50;
+}
+
+#chat-window {
+    /* Màu nền khung chat tối hơn */
+    border: 1px solid #3a3a3a;
+    background-color: #252526;
+    height: 600px;
+    overflow-y: scroll;
+    padding: 10px;
+    margin-bottom: 10px;
+    /* THÊM BO TRÒN CHO KHUNG CHAT */
+    border-radius: 10px;
+}
+
+/* Định dạng cho nội dung trong chat */
+/* Cần bọc nội dung tin nhắn trong một thẻ <div> hoặc <span> */
+/* Giả định bạn đang thêm định dạng này vào div/span chứa nội dung tin nhắn */
+
+/* ---------------------------------------------------- */
+/* THÊM BO TRÒN VÀ MÀU NỀN CHO TIN NHẮN GỬI ĐI VÀ NHẬN VỀ */
+/* ---------------------------------------------------- */
+
+.user-message {
+    text-align: right;
+    margin: 10px 0;
+    /* Tăng khoảng cách giữa các tin nhắn */
+}
+
+/* Định dạng cho tin nhắn người dùng (màu xanh sáng, bo tròn) */
+.user-message span {
+    /* Giả định: Sử dụng span/div bên trong user-message để bọc nội dung text */
+    display: inline-block;
+    max-width: 80%;
+    padding: 8px 12px;
+    border-radius: 18px 18px 0 18px;
+    /* Bo tròn đặc trưng cho tin nhắn người dùng */
+    background-color: #007bff;
+    /* Màu xanh dương cho tin nhắn người dùng */
+    color: white;
+}
+
+.ai-message {
+    text-align: left;
+    margin: 10px 0;
+}
+
+/* Định dạng cho tin nhắn AI (màu xanh lá nhạt, bo tròn) */
+.ai-message span {
+    display: inline-block;
+    max-width: 80%;
+    padding: 8px 12px;
+    border-radius: 18px 18px 18px 0;
+    /* Bo tròn đặc trưng cho tin nhắn AI */
+    background-color: #3a3a3a;
+    /* Màu nền tối hơn cho AI */
+    color: #a5d6a7;
+}
+
+/* Định dạng văn bản đặc biệt trong phản hồi AI */
+.ai-message strong {
+    color: #FFC107;
+}
+
+.input-area {
+    display: flex;
+}
+
+#message-input {
+    flex-grow: 1;
+    padding: 8px;
+    background-color: #3a3a3a;
+    color: #f0f0f0;
+    border: 1px solid #555;
+    border-radius: 20px;
+    /* Bo tròn input */
+}
+
+#send-button {
+    padding: 8px 15px;
+    margin-left: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    /* Bo tròn nút Gửi */
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#send-button:hover {
+    background-color: #388e3c;
+}
