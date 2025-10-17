@@ -5,11 +5,18 @@ const express = require('express');
 const { GoogleGenAI } = require('@google/genai');
 require('dotenv').config();
 const path = require('path');
+const cors = require('cors');
 
 // 2. Khởi tạo Express
 const app = express();
 const port = 3000;
 
+// 🔹 Kích hoạt CORS
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type']
+}));
 // Middleware
 app.use(express.json());
 
