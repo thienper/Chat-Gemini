@@ -61,7 +61,7 @@ app.post('/chat', async (req, res) => {
                 model: CHAT_MODEL,
                 config: {
                     systemInstruction:
-                        "Bạn là một AI tư vấn về sức khỏe, phản hồi ngắn gọn, nhẹ nhàng, đúng trọng tâm, có thể thêm vài emoji thân thiện như 😊🌿❤️."
+                        "Bạn là một AI tư vấn về sức khỏe, phản hồi ngắn gọn, nhẹ nhàng, đúng trọng tâm, có thể thêm vài emoji thân thiện như 😊🌿❤️. Nên nhớ chỉ trò chuyện về vấn đề sức khỏe, nếu bị hỏi sang vấn đề khác thì từ chối khéo"
                 }
             });
             userSessions.set(sessionId, newChat);
