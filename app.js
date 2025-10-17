@@ -41,13 +41,7 @@ try {
 
     ai = new GoogleGenAI(apiKey);
 
-    // Khởi tạo một đối tượng chat session với System Instruction
-    chat = ai.chats.create({
-        model: CHAT_MODEL,
-        config: {
-            systemInstruction: "Bạn là một AI tư vấn về sức khỏe cho người dùng, hãy phản hồi 1 cách nhẹ nhàng, thoải mái, độ dài vừa phải, đúng trọng tâm trong suốt cuộc trò chuyện. Có thể thêm vài icon cho cảm giác thân thiện thoải mái."
-        }
-    });
+
 
     // 4. Định nghĩa API endpoint cho chat
     app.get('/', (req, res) => {
@@ -61,7 +55,13 @@ try {
             if (!userMessage) {
                 return res.status(400).json({ error: 'Thiếu trường "message" trong request body.' });
             }
-
+            // Khởi tạo một đối tượng chat session với System Instruction
+            chat = ai.chats.create({
+                model: CHAT_MODEL,
+                config: {
+                    systemInstruction: "Bạn là một AI tư vấn về sức khỏe cho người dùng, hãy phản hồi 1 cách nhẹ nhàng, thoải mái, độ dài vừa phải, đúng trọng tâm trong suốt cuộc trò chuyện. Có thể thêm vài icon cho cảm giác thân thiện thoải mái."
+                }
+            });
             console.log(`[CHAT] Người dùng: ${userMessage}`);
             const result = await chat.sendMessage({ message: userMessage });
             const aiResponse = result.text;
